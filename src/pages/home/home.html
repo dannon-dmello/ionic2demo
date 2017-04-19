@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Atos Movie Search
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-searchbar (ionInput)="getMovies($event)" (ionCancel)="clearList($event)" [showCancelButton]="true" placeholder="Search Movie"></ion-searchbar>
+
+    <ion-list>
+        <ion-item *ngFor="let movie of movies" (click)="showMovieDetails(movie)">
+            <ion-avatar item-left>
+                <img [src]="movie.Poster">
+            </ion-avatar>
+            <h2>{{movie.Title}}</h2>
+            <p>Year:{{movie.Year}}</p>
+        </ion-item>
+    </ion-list>
+
+</ion-content>
